@@ -1,32 +1,33 @@
+'Use Strict'
+
+// proof of life
+console.log('IM ALIVE');
+
+var storeHourArr = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
+
 var seattle = {
   minCustomer = 23,
   maxCustomer = 65,
   avgCookieSale = 6.3,
-  totalCookiesForTheDay: 0,
   customersEachHour: [],
   cookiesSoldEachHour: [],
+
+  calculateCustomersEachHour: function () {
+    for(var i=0; i < storeHourArr.length; i++);
+    var customers = getRandomNumber(this.minCustomer,this.maxCustomer);
+    this.customersEachHour.push(customer);
+  }
+
+  // calculateCookiesEachHour: function () {
+  //   for(var i=0; i<)
+  // }
 }
 
-var tokyo = {
-  minCustomer = 3,
-  maxCustomer = 24,
-  avgCookieSale = 1.2,
-}
+seattle.calculateCustomersEachHour();
+console.log(seattle)
 
-var dubai = {
-  minCustomer = 11,
-  maxCustomer = 38,
-  avgCookieSale = 3.7,
-}
+//I got this from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-var paris = {
-  minCustomer = 20,
-  maxCustomer = 38,
-  avgCookieSale = 2.3,
-}
-
-var lima = {
-  minCustomer = 2,
-  maxCustomer = 16,
-  avgCookieSale = 4.6,
+function getRandomNumber(min,max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
