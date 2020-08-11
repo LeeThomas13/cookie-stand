@@ -2,6 +2,7 @@ var seattle = {
   minCustomer = 23,
   maxCustomer = 65,
   avgCookieSale = 6.3,
+  
 }
 
 var tokyo = {
