@@ -2,7 +2,9 @@ var seattle = {
   minCustomer = 23,
   maxCustomer = 65,
   avgCookieSale = 6.3,
-  totalCookiesForTheDay
+  totalCookiesForTheDay: 0,
+  customersEachHour: [],
+  cookiesSoldEachHour: [],
 }
 
 var tokyo = {
