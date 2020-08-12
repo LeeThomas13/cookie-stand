@@ -12,6 +12,7 @@ function getRandomNumber(min, max) {
 }
 
 var seattle = {
+  name: 'Seattle',
   minCustomer: 23,
   maxCustomer: 65,
   avgCookieSale: 6.3,
@@ -33,9 +34,20 @@ var seattle = {
       this.totalCookiesSoldToday = this.totalCookiesSoldToday + this.cookiesSoldPerHour[i];
     }
   },
+
+  render: function() {
+    var storeName = document.getElementById('seattle-name')
+    storeName.textContent = this.name;
+
+    var 
+    
+  }
 } 
 
+seattle.render ();
+
 var tokyo = {
+  name: 'Tokyo',
   minCustomer: 3,
   maxCustomer: 24,
   avgCookieSale: 1.2,
@@ -57,9 +69,18 @@ var tokyo = {
       this.totalCookiesSoldToday = this.totalCookiesSoldToday + this.cookiesSoldPerHour[i];
     }
   },
+
+  render: function() {
+    var storeName = document.getElementById('tokyo-name')
+    storeName.textContent = this.name;
+  }
 } 
 
+tokyo.render();
+
+
 var dubai = {
+  name: 'Dubai',
   minCustomer: 11,
   maxCustomer: 38,
   avgCookieSale: 3.7,
@@ -81,9 +102,18 @@ var dubai = {
       this.totalCookiesSoldToday = this.totalCookiesSoldToday + this.cookiesSoldPerHour[i];
     }
   },
+
+  render: function (){
+    var storeName = document.getElementById('dubai-name')
+    storeName.textContent = this.name;
+  }
+
 } 
 
+dubai.render();
+
 var paris = {
+  name: 'Paris',
   minCustomer: 20,
   maxCustomer: 38,
   avgCookieSale: 2.3,
@@ -105,9 +135,17 @@ var paris = {
       this.totalCookiesSoldToday = this.totalCookiesSoldToday + this.cookiesSoldPerHour[i];
     }
   },
+
+  render: function () {
+    var storeName = document.getElementById('paris-name')
+    storeName.textContent = this.name;
+  }
 } 
 
+paris.render();
+
 var lima = {
+  name: 'Lima',
   minCustomer: 2,
   maxCustomer: 16,
   avgCookieSale: 4.6,
@@ -129,7 +167,14 @@ var lima = {
       this.totalCookiesSoldToday = this.totalCookiesSoldToday + this.cookiesSoldPerHour[i];
     }
   },
+
+  render: function () {
+    var storeName = document.getElementById('lima-name')
+    storeName.textContent = this.name;
+  }
 } 
+
+lima.render();
 
 
 
