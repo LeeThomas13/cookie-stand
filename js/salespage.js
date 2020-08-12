@@ -1,57 +1,81 @@
 'use strict'
-
-//proof of life
-console.log('ITS ALIVE!')
-
 var allStores = [];
-
 var storeHourArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
 var parentElement = document.getElementById('table');
 
-var customersEachHour = [];
- 
-var cookiesSoldPerHour = [];
-
-new storeLocation('Seattle', 23, 65, 6.3)
-new storeLocation('Tokyo', 3, 24, 1.2)
-new storeLocation('Dubai', 11, 38, 3.7)
-new storeLocation('Paris', 20, 38, 2.3)
-new storeLocation('Lima', 2, 16, 4.6)
-
-function storeLocation(name, minCustomer, maxCustomer, avgCookieSale,) {
+function StoreLocation(name, minCustomer, maxCustomer, avgCookieSale,) {
   this.storeName = name;
   this.minCustomer = minCustomer;
   this.maxCustomer = maxCustomer;
   this.avgCookieSale = avgCookieSale;
+  this.customersEachHour = [];
+  this.cookiesSoldPerHour = [];
+  this.totalCookiesSoldToday = 0;
 
   allStores.push(this)
 }
 
-storeLocation();
-console.log(allStores)
+StoreLocation.prototype.calculateCustomersEachHour = function (){
+  for(var i = 0; i < storeHourArr.length; i++)
+  var customers = getRandomNumber(this.minCustomer, this.maxCustomer);
+  this.customersEachHour.push(customers);
+}
 
-new storeLocation('Seattle', 23, 65, 6.3)
-new storeLocation('Tokyo', 3, 24, 1.2)
-new storeLocation('Dubai', 11, 38, 3.7)
-new storeLocation('Paris', 20, 38, 2.3)
-new storeLocation('Lima', 2, 16, 4.6)
-storeLocation();
-console.log(allStores)
+StoreLocation.prototype.calculateCookiesSoldPerHour = function (){
+  for(var i=0; i<this.customersEachHour.length; i++);
+  var cookies = Math.ceil(this.avgCookieSale * this.customersEachHour[i]);
+  this.cookiesSoldPerHour.push(cookies);
+  this.totalCookiesSoldToday = this.totalCookiesSoldToday + this.cookiesSoldPerHour;
+
+}
+
+StoreLocation.prototype.render = function () {
+  var tableRow = document.createElement('tr');
+  for(var i=0;i<storeHourArr.length; i++){ 
+    var tableData = document.createElement('td');
+    tableData.textContent = this.cookiesSoldPerHour[i];
+    tableRow.appendChild(tableData);
+  }
+
+  var totalDailySales = document.createElement('td');
+  totalDailySales.textContent = this.totalCookiesSoldToday;
+  tableRow.appendChild(totalDailySales);
+  parentElement.appendChild(tableRow);
+}
 
 
+var seattle = new StoreLocation('Seattle', 23, 65, 6.3)
+var tokyo = new StoreLocation('Tokyo', 3, 24, 1.2)
+var dubai = new StoreLocation('Dubai', 11, 38, 3.7)
+var paris = new StoreLocation('Paris', 20, 38, 2.3)
+var lima = new StoreLocation('Lima', 2, 16, 4.6)
 
-
-
-
-
+function generateHeader(){
+  var tableRow = document.createElement('tr')
+  for (var i=0;i<storeHourArr.length; i++){
+  var tableHeader = document.getElementById('th')
+  tableHeader.textContent = storeHourArr[i];
+  tableRow.appendChild(tableHeader);
+  }
+  parentElement.appendChild(tableRow);
+}
 
 // I got this from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-// function getRandomNumber(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
+function generateContent(){
+  for(i=0;i<allStores.length;i++){
+    allStores[i].calculateCustomersEachHour();
+    allStores[i].calculateCookiesSoldPerHour();
+    allStores[i].render();
+  }
+}
+
+generateHeader()
+generateContent()
 
 
 
