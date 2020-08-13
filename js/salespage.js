@@ -2,7 +2,7 @@
 var allStores = [];
 var storeHourArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var parentElement = document.getElementById('table');
-var totalOfAllTotals
+var totalOfAllTotals = 0
 var seattle = new StoreLocation('Seattle', 23, 65, 6.3)
 var tokyo = new StoreLocation('Tokyo', 3, 24, 1.2)
 var dubai = new StoreLocation('Dubai', 11, 38, 3.7)
