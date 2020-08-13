@@ -2,6 +2,7 @@
 var allStores = [];
 var storeHourArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var parentElement = document.getElementById('table');
+var totalOfAllTotals
 var seattle = new StoreLocation('Seattle', 23, 65, 6.3)
 var tokyo = new StoreLocation('Tokyo', 3, 24, 1.2)
 var dubai = new StoreLocation('Dubai', 11, 38, 3.7)
@@ -59,6 +60,31 @@ function generateHeader(){
   parentElement.appendChild(tableRow);
 }
 
+function generateFooter( {
+  var tableRow = document.createElement('tr')
+
+  for (var i=0; i<storeHourArr.length; i++){
+    var hourlyTotals = 0
+
+    for (var j=0; j < allStores.length; j++){
+      hourlyTotals += allStores[j].cookiesSoldPerHour[i];
+      totalOfAllTotals += allStores[j].cookiesSoldPerHour[i];
+    }
+
+    var tableData = document.createElement('td')
+    tableData.textContent = hourlyTotals;
+    tableRow.appendChild(tableData);
+
+    
+    
+  }
+  var tableFooterTotal = document.createElement('td')
+  tableFooterTotal.textContent = totalOfAllTotals;
+  tableRow.appendChild(tableFooterTotal)
+
+  parentElement.appendChild(tableRow);
+}
+
 // I got this from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 function getRandomNumber(min, max) {
@@ -78,6 +104,7 @@ function generateContent(){
 // StoreLocation()
 generateHeader()
 generateContent()
+generateFooter
 
 
 
