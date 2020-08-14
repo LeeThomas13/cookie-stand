@@ -95,14 +95,19 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// console.log(allStores)
-// calculateCustomersEachHour()
-StoreLocation();
-StoreLocation.prototype.customersEachHour();
-StoreLocation.prototype.cookiesSoldPerHour();
+cookieForm.addEventListener('submit', function(){
+  event.preventDefault();
+  var minCust = parseInt(event.target.minCustomer.value);
+  var locations = event.target.location.value;
+  var maxCust = parseInt(event.target.maxCustomer.value);
+  var avgCookie = parseInt(event.target.avgCookieSale.value);
 
-// generateHeader();
-// generateFooter();
-// generateContent();
+  new StoreLocation(locations, minCust, maxCust, avgCookie);
+
+  parent.innerHTML = '';
+  generateHeader();
+  generateContent();
+  generateFooter();
+})
 
 
