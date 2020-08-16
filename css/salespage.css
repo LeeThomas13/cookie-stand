@@ -6,3 +6,11 @@ h1 {
 .footer-nav {
   font-size: 1.5em;
 }
+
+main {
+  display: flex;
+}
+
+table {
+  
+}
