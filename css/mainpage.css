@@ -1,12 +1,17 @@
+html {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #5E1515;
+}
+
 h1 {
   display: flex;
   padding: 20px 20px 20px 20px;
   justify-content: space-between;
+  font-family: 'Pangolin', cursive,;
+  color: #D1EB2A;
+  background-color: #948754;
 }
 
-html {
-  font-family: 'Exo', sans-serif;
-}
 
 h1 img {
   max-width: 40%;
@@ -15,6 +20,7 @@ h1 img {
 header p {
   font-size: 2em;
   margin-top: 100px;
+
 }
 
 header div nav {
@@ -25,6 +31,7 @@ header div nav {
 
 main {
   margin: 20px;
+  background-color: #C47412;
 }
 
 section main h3 {
@@ -53,16 +60,23 @@ body {
 main div p {
   margin-bottom: 20px;
   font-size: 1.5em;
+  padding-left: 20px;
+}
+figure {
+  padding-left: 60px;
 }
 
 #products {
   display: inline;
+  font-size: 1.5em;
 }
 
 footer {
   background-image: url('../fishimages/fish.jpg');
-  opacity: .2;
+  opacity: .5;
   font-size: 3em;
+  color: #460F0F;
+
 }
 
 
