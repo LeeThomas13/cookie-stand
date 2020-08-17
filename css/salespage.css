@@ -1,3 +1,8 @@
+html {
+  margin: 50px;
+  font-family: 'Exo', sans-serif;
+}
+
 h1 {
   padding: 10px 0 40px 0;
   font-size: 3em;
@@ -25,4 +30,21 @@ th {
 fieldset {
   display: flex;
   display: inline;
+}
+
+form {
+  margin: 30px 30px 30px 0;
+}
+
+a {
+  font-size: 2em;
+}
+
+footer div{
+  padding: 30px 30px 30px 30px;
+  background-image: url('../fishimages/fish.jpg');
+}
+
+.footer-nav {
+  margin: 20px 20px 20px 20px;
 }

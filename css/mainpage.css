@@ -1,3 +1,69 @@
 h1 {
-  padding: 1em 5em;
+  display: flex;
+  padding: 20px 20px 20px 20px;
+  justify-content: space-between;
 }
+
+html {
+  font-family: 'Exo', sans-serif;
+}
+
+h1 img {
+  max-width: 40%;
+}
+
+header p {
+  font-size: 2em;
+  margin-top: 100px;
+}
+
+header div nav {
+  padding-right: 5px;
+  font-size: 1.5em;
+  border: 3px solid black;
+}
+
+main {
+  margin: 20px;
+}
+
+section main h3 {
+  font-size: 1.5em;
+  font-weight: 200;
+  padding: 20px 400px 20px 60px;
+  margin-right: 170px;
+
+}
+
+body {
+  border: solid black;
+  margin: 30px;
+}
+
+#family-photo{
+  margin: 20px 20px 20px 60px;
+  max-width: 50%;
+}
+
+#addresses {
+  margin: 20px 20px 20px 20px;
+  line-height: 20px;
+}
+
+main div p {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+#products {
+  display: inline;
+}
+
+footer {
+  background-image: url('../fishimages/fish.jpg');
+  opacity: .2;
+  font-size: 3em;
+}
+
+
+
