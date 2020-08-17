@@ -5,6 +5,7 @@ var allStores = [];
 var storeHourArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var parentElement = document.getElementById('table');
 var totalOfAllTotals = 0
+var cookieForm = document.getElementById('cookieForm')
 
 function StoreLocation(name, minCustomer, maxCustomer, avgCookieSale) {
   this.storeName = name;
@@ -18,6 +19,7 @@ function StoreLocation(name, minCustomer, maxCustomer, avgCookieSale) {
 }
 
 StoreLocation.prototype.calculateCustomersEachHour = function (){
+  this.customersEachHour = [];
   for(var i = 0; i < storeHourArr.length; i++){
     var customers = getRandomNumber(this.minCustomer, this.maxCustomer);
     this.customersEachHour.push(customers);
@@ -25,6 +27,8 @@ StoreLocation.prototype.calculateCustomersEachHour = function (){
 }
 
 StoreLocation.prototype.calculateCookiesSoldPerHour = function (){
+  this.cookiesSoldPerHour = [];
+  this.totalCookiesSoldToday = 0;
   for(var i=0; i<storeHourArr.length; i++){
     var cookies = Math.ceil(this.avgCookieSale * this.customersEachHour[i]);
     this.cookiesSoldPerHour.push(cookies);
@@ -96,24 +100,27 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// cookieForm.addEventListener('submit', function(){
-//   event.preventDefault();
-//   var minCust = parseInt(event.target.minCustomer.value);
-//   var locations = event.target.location.value;
-//   var maxCust = parseInt(event.target.maxCustomer.value);
-//   var avgCookie = parseInt(event.target.avgCookieSale.value);
+cookieForm.addEventListener('submit', function(){
+  event.preventDefault();
+  var name = event.target.name.value;
+  var minCustomer = event.target.minCustomers.value;
+  var maxCustomer = event.target.maxCustomers.value;
+  var avgCookieSale = event.target.avgCookieSale.value;
 
-//   new StoreLocation(locations, minCust, maxCust, avgCookie);
+  new StoreLocation(name, minCustomer, maxCustomer, avgCookieSale);
+  console.log(minCustomer);
+  console.log(maxCustomer);
+  console.log(avgCookieSale);
 
-//   parent.innerHTML = '';
-//   generateHeader();
-//   generateContent();
-//   generateFooter();
-// })
+  document.getElementById('table').innerHTML='';
+  generateHeader();
+  generateContent();
+  generateFooter();
+})
 
 generateHeader();
-generateFooter();
 generateContent();
+generateFooter();
 
 
 

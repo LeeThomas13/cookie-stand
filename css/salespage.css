@@ -8,9 +8,21 @@ h1 {
 }
 
 main {
-  display: flex;
+
 }
 
-table {
+td {
+   border: 1px solid black;
+   padding-top: 10px;
+}
+
+th {
+  font-size: larger;
+  border: 1px solid black;
   
+}
+
+fieldset {
+  display: flex;
+  display: inline;
 }
